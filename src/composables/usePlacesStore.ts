@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import { StateInterface } from '@/store/index';
 import { computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
