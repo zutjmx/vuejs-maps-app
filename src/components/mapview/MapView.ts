@@ -24,6 +24,23 @@ export default defineComponent({
                 center: userLocation.value, // starting position [lng, lat]
                 zoom: 15, // starting zoom
                 });
+
+            const myLocationPopUp = new Mapboxgl.Popup({offset: [0, -25]})
+                .setLngLat(userLocation.value)
+                .setHTML(`
+                    <h4>Esta es mi ubicación</h4>
+                    <p>No muy precisa en Coyoacán</p>
+                    <p>${userLocation.value}</p>
+                `);
+
+            const myLocationMarker = new Mapboxgl.Marker()
+                .setLngLat(userLocation.value)
+                .setPopup(myLocationPopUp)
+                .addTo(map);
+
+            //TODO: Establecer el mapa en Vuex
+
+
         }
 
         onMounted(() => {
